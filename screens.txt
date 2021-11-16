@@ -1,0 +1,45 @@
+API
+    - login_user (/apis/user/login/)
+        data.status [active, deactive, varify_email]
+    - check_phone_email_exist (/apis/user/check_email_phone_exist/)
+    - register_user (/apis/user/register)
+    
+    - varify_email_code (/apis/user/varify_email_code/) 
+    - resend_varification_email  (/apis/user/resend_varification_email/)
+    
+    - main_screen (/apis/user/main_screen/) [#sliderImg]
+    - of_fund_houses (/apis/matualfund/of_fund_houses?id=2)
+    - profile (/apis/user/profile/)
+    - profile_update (/apis/user/profile_update/)
+    - profile_remove (/apis/user/profile_remove/) [Remove (profile|pancard)]
+    - forgot_password (/apis/user/forgot_password/) []
+    - list matual fund scheme wise
+    - list sub types of all funds
+    - list all funds under sub type
+    - detail view of fund
+
+    - list funds by company_id (api/mutual-fund/get-company-funds)
+Android
+    - register_user
+    - login_user
+    - varify_otp
+    - varify_email
+    - main_screen
+    - forgot_password
+
+Admin
+    - login
+    - change_password
+    - profile
+    - dashboard
+    - requested_user
+    - varified_user
+
+Investments - In all action update annulized return - update user_matual_fund tbl
+    - Add SIP
+    - Edit SIP
+    - Delete SIP
+    - Add Instsallment
+    - Add Lump Sum Investment
+    - Edit Lump Sum Investment
+    - Delete Lump Sum Investment

@@ -1,0 +1,1212 @@
+{
+	"info": {
+		"_postman_id": "262baec4-6581-490b-854e-03e29ef9f537",
+		"name": "Patel Consultancy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Laravel",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    ",
+									"    pm.environment.set('id', jsonData.data.user_id);",
+									"    pm.environment.set('token', jsonData.data.access_token);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{email}}\",\n    \"password\": \"{{password}}\",\n    \"device_token\": \"new token\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Email Phone",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_email",
+									"value": "romik@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "mobile_no",
+									"value": "+919913357614",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/check_email_phone_exist",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"check_email_phone_exist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Your test name\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    pm.environment.set(\"token\", jsonData.data.access_token);\r",
+									"    pm.environment.set('id', jsonData.data.user_id);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_name",
+									"value": "Romik Makavana",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "user_email",
+									"value": "makavanaromik1214@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "mobile_no",
+									"value": "9913357614",
+									"type": "text"
+								},
+								{
+									"key": "device_token",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/register",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_email",
+									"value": "makavanaromik1214@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{live}}/api/forgot_password",
+							"host": [
+								"{{live}}"
+							],
+							"path": [
+								"api",
+								"forgot_password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "{{id}}",
+									"type": "text"
+								},
+								{
+									"key": "access_token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/client/profile",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"client",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "access_token",
+									"value": "Psz1pQyd0Jnqqx4HolvaQNWgTSEK4irZ1Y159eEOs8Gqfq22YEiZRHjGI4S9",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Romik Makavana",
+									"type": "text"
+								},
+								{
+									"key": "mobile_no",
+									"value": "+919913327614",
+									"type": "text"
+								},
+								{
+									"key": "pan_card",
+									"value": "AKKKLSK12",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "makavanaromik1214@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "birthdate",
+									"value": "09-07-1999",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/client/profileupdate",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"client",
+								"profileupdate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mutual Fund Scheme Wise",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "{{id}}",
+									"type": "text"
+								},
+								{
+									"key": "access_token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/mutual-fund/scheme-wise",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"mutual-fund",
+								"scheme-wise"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Investment Sub Type Wise",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "{{id}}",
+									"type": "text"
+								},
+								{
+									"key": "access_token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/mutual-fund/sub-type-wise",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"mutual-fund",
+								"sub-type-wise"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Main Screen",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "{{id}}",
+									"type": "text"
+								},
+								{
+									"key": "access_token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/client/mainscreen",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"client",
+								"mainscreen"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "{{id}}",
+									"type": "text"
+								},
+								{
+									"key": "access_token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/logout",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Subtype Wise - Mutual Funds",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "{{id}}",
+									"type": "text"
+								},
+								{
+									"key": "access_token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/mutual-fund/sub-type-wise/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"mutual-fund",
+								"sub-type-wise",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Policies",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "{{id}}",
+									"type": "text"
+								},
+								{
+									"key": "access_token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/policies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload User Document",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "access_token",
+									"value": "{{token}}",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "{{id}}",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "ID Card",
+									"type": "text"
+								},
+								{
+									"key": "document",
+									"type": "file",
+									"src": "/C:/Users/eHeuristic/Pictures/thanos.png"
+								},
+								{
+									"key": "document_id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/client/uploaduserdoc",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"client",
+								"uploaduserdoc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove User Document",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "access_token",
+									"value": "{{token}}",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "{{id}}",
+									"type": "text"
+								},
+								{
+									"key": "document_id",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/client/removeuserdocument",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"client",
+								"removeuserdocument"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Document",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "access_token",
+									"value": "{{token}}",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "{{id}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/client/getuserdocuments",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"client",
+								"getuserdocuments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Plans",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "access_token",
+									"value": "{{token}}",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "{{id}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/clientplan/getuserplans",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"clientplan",
+								"getuserplans"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ulip Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "{{id}}",
+									"type": "text"
+								},
+								{
+									"key": "access_token",
+									"value": "{{token}}",
+									"type": "text"
+								},
+								{
+									"key": "policy_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/insurance/ulip-request",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"insurance",
+								"ulip-request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ulip Requests",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "{{id}}",
+									"type": "text"
+								},
+								{
+									"key": "access_token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/insurance/get-ulip-requests",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"insurance",
+								"get-ulip-requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insurances",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "{{id}}",
+									"type": "text"
+								},
+								{
+									"key": "access_token",
+									"value": "{{token}}",
+									"type": "text"
+								},
+								{
+									"key": "person_id",
+									"value": "1",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/insurance/types",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"insurance",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insurance Persons",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "{{id}}",
+									"type": "text"
+								},
+								{
+									"key": "access_token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/insurance/persons",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"insurance",
+								"persons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insurance List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "{{id}}",
+									"type": "text"
+								},
+								{
+									"key": "access_token",
+									"value": "{{token}}",
+									"type": "text"
+								},
+								{
+									"key": "type_id",
+									"value": "1",
+									"description": "traditional | ulip | 1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "person_id",
+									"value": "3",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/insurance/list",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"insurance",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insurance details",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "{{id}}",
+									"type": "text"
+								},
+								{
+									"key": "access_token",
+									"value": "{{token}}",
+									"type": "text"
+								},
+								{
+									"key": "type_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/insurance/details/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"insurance",
+								"details",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insurance Document",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "{{id}}",
+									"type": "text"
+								},
+								{
+									"key": "access_token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://project.local/Projects/patel_consultancy/public/api/insurance/document/2/policy_master/1",
+							"protocol": "http",
+							"host": [
+								"project",
+								"local"
+							],
+							"path": [
+								"Projects",
+								"patel_consultancy",
+								"public",
+								"api",
+								"insurance",
+								"document",
+								"2",
+								"policy_master",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Chane MPIN",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mpin",
+									"value": "1236",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "{{id}}",
+									"type": "text"
+								},
+								{
+									"key": "access_token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/client/change-pin",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"client",
+								"change-pin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify MPIN",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mpin",
+									"value": "1237",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "{{id}}",
+									"type": "text"
+								},
+								{
+									"key": "access_token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/client/verify-pin",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"client",
+								"verify-pin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Curl",
+			"item": [
+				{
+					"name": "Send Greetings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/greetings/send",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"greetings",
+								"send"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Policy Reminder Notification",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/notification",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"notification"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Calculate XIRR",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"amount\": -1000,\r\n        \"when\": {\r\n            \"Y\": 2015,\r\n            \"m\": 1,\r\n            \"d\": 1\r\n        }\r\n    },\r\n    {\r\n        \"amount\": -1000,\r\n        \"when\": {\r\n            \"Y\": 2016,\r\n            \"m\": 1,\r\n            \"d\": 1\r\n        }\r\n    },\r\n    {\r\n        \"amount\": -1000,\r\n        \"when\": {\r\n            \"Y\": 2017,\r\n            \"m\": 1,\r\n            \"d\": 1\r\n        }\r\n    },\r\n    {\r\n        \"amount\": -1000,\r\n        \"when\": {\r\n            \"Y\": 2018,\r\n            \"m\": 1,\r\n            \"d\": 1\r\n        }\r\n    },\r\n    {\r\n        \"amount\": -1000,\r\n        \"when\": {\r\n            \"Y\": 2019,\r\n            \"m\": 1,\r\n            \"d\": 1\r\n        }\r\n    },\r\n    {\r\n        \"amount\": 6000,\r\n        \"when\": {\r\n            \"Y\": 2020,\r\n            \"m\": 1,\r\n            \"d\": 1\r\n        }\r\n    }\r\n]"
+				},
+				"url": {
+					"raw": "https://patel-consultancy.firebaseapp.com/xirr",
+					"protocol": "https",
+					"host": [
+						"patel-consultancy",
+						"firebaseapp",
+						"com"
+					],
+					"path": [
+						"xirr"
+					]
+				},
+				"description": "calculate Annulize return \n\nReq :\n-----\n[\n\t{ \"amount\": -1000, \"when\": {\"Y\": 2012, \"m\":1, \"d\":1 } },\n\t{ \"amount\": -1000, \"when\": {\"Y\": 2013, \"m\":1, \"d\":1 } },\n\t{ \"amount\": -1000, \"when\": {\"Y\": 2014, \"m\":1, \"d\":1 } },\n\t{ \"amount\": -1000, \"when\": {\"Y\": 2015, \"m\":1, \"d\":1 } },\n\t{ \"amount\": -1000, \"when\": {\"Y\": 2016, \"m\":1, \"d\":1 } },\n\t{ \"amount\": 6000, \"when\": {\"Y\": 2017, \"m\":1, \"d\":1 } }\n]"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{live}}/api/token/4",
+					"host": [
+						"{{live}}"
+					],
+					"path": [
+						"api",
+						"token",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
